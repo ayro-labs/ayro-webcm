@@ -36,13 +36,13 @@ const key = settings.https ? fs.readFileSync(settings.https.key) : null;
 const wsServer = cert && key ? https.createServer({cert, key}) : http.createServer();
 const webSocket = ws.configure(wsServer);
 wsServer.listen(settings.wsPort, () => {
-  logger.info('Ayro Webcm Websocket is listening on port %s', settings.wsPort);
+  logger.info('Ayro Webcm websocket is listening on port %s', settings.wsPort);
 });
 
 routes.configure(express, app, webSocket);
 
 const server = cert && key ? https.createServer({cert, key}, app) : http.createServer(app);
 server.listen(app.get('port'), () => {
-  logger.info('Ayro Webcm is listening on port %s', app.get('port'));
+  logger.info('Ayro Webcm server is listening on port %s', app.get('port'));
 });
 
