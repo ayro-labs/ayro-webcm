@@ -1,7 +1,7 @@
 {
   "name": "ayro-webcm",
   "description": "Ayro Web Cloud Messaging",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "author": {
     "name": "Ayro team",
@@ -11,12 +11,16 @@
   "homepage": "https://ayro.io",
   "scripts": {
     "lint": "eslint '**/*.js'",
-    "start": "node app.js"
+    "start": "node app.js",
+    "release-dist": "node tasks/release.js",
+    "publish-dist": "node tasks/publish.js"
   },
   "devDependencies": {
     "eslint": "4.9.0",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.7.0"
+    "eslint-plugin-import": "2.7.0",
+    "lodash": "4.17.4",
+    "semver": "5.4.1"
   },
   "dependencies": {
     "bluebird": "3.5.1",
