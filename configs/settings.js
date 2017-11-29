@@ -14,7 +14,7 @@ exports.session = {
 };
 
 exports.redis = {
-  host: properties.getValue('redis.host', 'ayro-redis'),
+  host: properties.getValue('redis.host', 'localhost'),
   port: properties.getValue('redis.port', 6379),
   password: properties.getValue('redis.password'),
 };
