@@ -1,4 +1,5 @@
 node_modules
+tasks
 npm-debug.log
 ayro-webcm.log
 config.properties
