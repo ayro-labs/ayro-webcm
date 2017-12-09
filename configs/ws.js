@@ -1,5 +1,5 @@
 const sessions = require('../utils/sessions');
-const logger = require('../utils/logger');
+const {logger} = require('@ayro/commons');
 const faye = require('faye');
 const util = require('util');
 

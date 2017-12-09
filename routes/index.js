@@ -1,4 +1,4 @@
-const logger = require('../utils/logger');
+const {logger} = require('@ayro/commons');
 
 module.exports = (router, app, webSocket) => {
 

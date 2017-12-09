@@ -1,8 +1,13 @@
+const {properties, logger, loggerServer} = require('@ayro/commons');
+const path = require('path');
+
+properties.setup(path.join(__dirname, 'config.properties'));
+logger.setup(path.join(__dirname, 'ayro-webcm.log'));
+loggerServer.setup();
+
 const settings = require('./configs/settings');
 const routes = require('./configs/routes');
 const ws = require('./configs/ws');
-const logger = require('./utils/logger');
-const loggerServer = require('./utils/logger-server');
 const http = require('http');
 const express = require('express');
 const cors = require('cors');
@@ -25,7 +30,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(morgan('tiny', {stream: loggerServer.stream}));
+app.use(morgan('tiny', {stream: {write: message => loggerServer.debug(message)}}));
 app.use(cors());
 
 const wsServer = http.createServer();

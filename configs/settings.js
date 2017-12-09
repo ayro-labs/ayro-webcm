@@ -1,10 +1,9 @@
-const properties = require('./properties');
-const logger = require('../utils/logger');
+const {properties, logger} = require('@ayro/commons');
 
-exports.env = properties.getValue('app.env', 'development');
-exports.port = properties.getValue('app.port', 3100);
-exports.wsPort = properties.getValue('app.wsPort', 3102);
-exports.debug = properties.getValue('app.debug', false);
+exports.env = properties.get('app.env', 'development');
+exports.port = properties.get('app.port', 3100);
+exports.wsPort = properties.get('app.wsPort', 3102);
+exports.debug = properties.get('app.debug', false);
 
 exports.session = {
   secret: 'ayro.io',
@@ -14,9 +13,9 @@ exports.session = {
 };
 
 exports.redis = {
-  host: properties.getValue('redis.host', 'localhost'),
-  port: properties.getValue('redis.port', 6379),
-  password: properties.getValue('redis.password'),
+  host: properties.get('redis.host', 'localhost'),
+  port: properties.get('redis.port', 6379),
+  password: properties.get('redis.password'),
 };
 
 logger.info('Using %s environment settings', this.env);
