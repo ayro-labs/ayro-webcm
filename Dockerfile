@@ -9,10 +9,11 @@ RUN \
   apk --no-cache update && \
   apk add --update --no-cache --virtual .build-deps make gcc g++ python && \
   npm install --production && \
+  npm install pm2 -g && \
   apk del .build-deps && \
   rm -rf /var/cache/apk/* /tmp/* && \
   touch config.properties
 COPY . .
 EXPOSE 3100
 EXPOSE 3102
-CMD ["npm", "start"]
+CMD ["pm2-docker", "process.json", "--only", "Ayro Webcm"]
