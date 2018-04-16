@@ -33,6 +33,7 @@
     "json.date-extensions": "1.2.2",
     "jsonwebtoken": "8.1.0",
     "morgan": "1.9.0",
+    "newrelic": "4.0.0",
     "redis": "2.8.0"
   }
 }

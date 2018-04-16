@@ -2,4 +2,12 @@ node_modules
 tasks
 npm-debug.log
 ayro-webcm.log
+newrelic_agent.log
 config.properties
+docker-compose.yml
+Dockerfile
+.dockerignore
+.eslintignore
+.eslintrc
+.gitignore
+.git
