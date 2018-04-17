@@ -16,22 +16,22 @@
     "publish-dist": "node tasks/publish.js"
   },
   "devDependencies": {
-    "eslint": "4.9.0",
+    "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.7.0"
+    "eslint-plugin-import": "2.11.0"
   },
   "dependencies": {
     "@ayro/commons": "0.0.21",
     "bluebird": "3.5.1",
     "body-parser": "1.18.2",
-    "compression": "1.7.1",
+    "compression": "1.7.2",
     "cookie-parser": "1.4.3",
     "cors": "2.8.4",
-    "express": "4.16.2",
+    "express": "4.16.3",
     "faye": "1.2.4",
     "hiredis": "0.5.0",
     "json.date-extensions": "1.2.2",
-    "jsonwebtoken": "8.1.0",
+    "jsonwebtoken": "8.2.1",
     "morgan": "1.9.0",
     "newrelic": "4.0.0",
     "redis": "2.8.0"

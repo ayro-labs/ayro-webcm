@@ -15,21 +15,19 @@ const redisClient = redis.createClient({
 
 const verifyAsync = Promise.promisify(jwt.verify);
 
-exports.getUser = (token) => {
-  return Promise.coroutine(function* () {
-    const decoded = yield verifyAsync(token, settings.session.secret);
-    if (!decoded.jti) {
-      throw errors.ayroError('session.user.invalid', 'Invalid session');
-    }
-    const session = yield redisClient.getAsync(settings.session.prefix + decoded.jti);
-    if (!session) {
-      throw errors.ayroError('session.user.notFound', 'Session user not found');
-    }
-    try {
-      const sessionData = JSON.parse(session);
-      return sessionData.user;
-    } catch (err) {
-      throw errors.ayroError('session.user.parseError', 'Could not parse user data', err);
-    }
-  })();
+exports.getUser = async (token) => {
+  const decoded = await verifyAsync(token, settings.session.secret);
+  if (!decoded.jti) {
+    throw errors.ayroError('session.user.invalid', 'Invalid session');
+  }
+  const session = await redisClient.getAsync(settings.session.prefix + decoded.jti);
+  if (!session) {
+    throw errors.ayroError('session.user.notFound', 'Session user not found');
+  }
+  try {
+    const sessionData = JSON.parse(session);
+    return sessionData.user;
+  } catch (err) {
+    throw errors.ayroError('session.user.parseError', 'Could not parse user data', err);
+  }
 };
