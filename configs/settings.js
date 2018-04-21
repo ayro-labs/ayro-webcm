@@ -1,3 +1,5 @@
+'use strict';
+
 const {properties, logger} = require('@ayro/commons');
 
 exports.env = properties.get('app.env', 'development');
@@ -6,10 +8,9 @@ exports.wsPort = properties.get('app.wsPort', 3102);
 exports.debug = properties.get('app.debug', false);
 
 exports.session = {
-  secret: 'ayro.io',
   prefix: 'session:',
-  requestHeader: 'token',
-  maxAge: Number.MAX_SAFE_INTEGER,
+  keyId: properties.get('session.keyId'),
+  secret: properties.get('session.secret'),
 };
 
 exports.redis = {

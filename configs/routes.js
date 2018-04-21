@@ -1,3 +1,5 @@
+'use strict';
+
 const {logger} = require('@ayro/commons');
 const indexRoutes = require('../routes');
 

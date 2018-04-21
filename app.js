@@ -1,3 +1,5 @@
+'use strict';
+
 require('newrelic');
 
 const {properties, logger, loggerServer} = require('@ayro/commons');
