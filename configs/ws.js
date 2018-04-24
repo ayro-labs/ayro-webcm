@@ -30,7 +30,7 @@ exports.configure = (wsServer) => {
         }
         try {
           const user = await session.getUser(message.ext.api_token);
-          if (util.format(SUBSCRIPTION_PATTERN, user.id) === message.subscription) {
+          if (user && util.format(SUBSCRIPTION_PATTERN, user.id) === message.subscription) {
             logger.info('Subscribing user %s', user.id);
             callback(message);
           } else {
