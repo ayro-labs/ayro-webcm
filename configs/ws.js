@@ -9,13 +9,12 @@ const SUBSCRIPTION_PATTERN = '/users/%s';
 const SUBSCRIBE_CHANNEL = '/meta/subscribe';
 const AUTH_ERROR = 'invalid_token';
 
+function emitAuthError(message, callback) {
+  message.error = AUTH_ERROR;
+  callback(message);
+}
+
 exports.configure = (wsServer) => {
-
-  function emitAuthError(message, callback) {
-    message.error = AUTH_ERROR;
-    callback(message);
-  }
-
   const bayeux = new faye.NodeAdapter({mount: '/'});
   bayeux.addExtension({
     incoming: (message, request, callback) => {
@@ -45,5 +44,4 @@ exports.configure = (wsServer) => {
   });
   bayeux.attach(wsServer);
   return bayeux;
-
 };
