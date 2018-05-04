@@ -3,11 +3,11 @@
 const {logger} = require('@ayro/commons');
 
 module.exports = (router, app, ws) => {
-  app.post('/push/:user', (req, res) => {
-    logger.debug('Publishing message of event %s to user %s', req.body.event, req.params.user);
+  app.post('/push/:device', (req, res) => {
+    logger.debug('Publishing message of event %s to device %s', req.body.event, req.params.device);
     const {message} = req.body;
     message.date = message.date.toJSON();
-    ws.getClient().publish(`/users/${req.params.user}`, req.body);
+    ws.getClient().publish(`/devices/${req.params.device}`, req.body);
     res.sendStatus(200);
   });
 };

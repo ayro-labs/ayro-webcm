@@ -5,7 +5,7 @@ const {logger} = require('@ayro/commons');
 const faye = require('faye');
 const util = require('util');
 
-const SUBSCRIPTION_PATTERN = '/users/%s';
+const SUBSCRIPTION_PATTERN = '/devices/%s';
 const SUBSCRIBE_CHANNEL = '/meta/subscribe';
 const AUTH_ERROR = 'invalid_token';
 
@@ -28,15 +28,15 @@ exports.configure = (wsServer) => {
           return;
         }
         try {
-          const user = await session.getUser(message.ext.api_token);
-          if (user && util.format(SUBSCRIPTION_PATTERN, user.id) === message.subscription) {
-            logger.info('Subscribing user %s', user.id);
+          const device = await session.getDevice(message.ext.api_token);
+          if (device && util.format(SUBSCRIPTION_PATTERN, device.id) === message.subscription) {
+            logger.info('Subscribing device %s', device.id);
             callback(message);
           } else {
             emitAuthError(message, callback);
           }
         } catch (err) {
-          logger.error('Could not get user from session', err);
+          logger.error('Could not get device from session', err);
           emitAuthError(message, callback);
         }
       })();
