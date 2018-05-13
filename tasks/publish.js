@@ -13,7 +13,7 @@ async function lintProject() {
 // Run this if call directly from command line
 if (require.main === module) {
   publishTask.withWorkingDir(WORKING_DIR);
-  publishTask.withBuildTask(lintProject);
+  publishTask.withLintTask(lintProject);
   publishTask.isDockerProject(true);
   publishTask.run();
 }
