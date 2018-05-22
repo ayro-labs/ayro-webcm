@@ -21,7 +21,7 @@
     "eslint-plugin-import": "^2.12.0"
   },
   "dependencies": {
-    "@ayro/commons": "0.0.25",
+    "@ayro/commons": "0.0.26",
     "bluebird": "3.5.1",
     "body-parser": "1.18.3",
     "compression": "1.7.2",
