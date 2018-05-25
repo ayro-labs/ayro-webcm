@@ -6,4 +6,4 @@ services:
     hostname: "ayro-webcm"
     network_mode: "host"
     volumes:
-      - "./config.properties:/usr/src/ayro-webcm/config.properties"
+      - "./config.yml:/usr/src/ayro-webcm/config.yml"

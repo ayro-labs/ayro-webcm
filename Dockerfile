@@ -12,7 +12,7 @@ RUN \
   npm install pm2 -g && \
   apk del .build-deps && \
   rm -rf /var/cache/apk/* /tmp/* && \
-  touch config.properties
+  touch config.yml
 COPY . .
 EXPOSE 3100
 EXPOSE 3102
