@@ -10,11 +10,11 @@ const webSocket = require('./utils/webSocket');
 const path = require('path');
 const http = require('http');
 const express = require('express');
-const cors = require('cors');
-const compression = require('compression');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const cors = require('cors');
 require('json.date-extensions');
 
 logger.setup({
@@ -30,12 +30,12 @@ const app = express();
 app.set('env', settings.env);
 app.set('port', settings.port);
 
+app.use(morgan('tiny', {stream: {write: message => logger.console.debug(message)}}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(compression());
 app.use(cors());
-app.use(morgan('tiny', {stream: {write: message => logger.console.debug(message)}}));
 
 logger.info('Using %s environment settings', settings.env);
 logger.info('Debug mode is %s', settings.debug ? 'ON' : 'OFF');
