@@ -1,8 +1,9 @@
 'use strict';
 
-const {configs, paths} = require('@ayro/commons');
+const {configs} = require('@ayro/commons');
+const path = require('path');
 
-const config = configs.load(paths.root('config.yml'));
+const config = configs.load(path.resolve('config.yml'));
 
 exports.env = config.get('app.env', 'development');
 exports.port = config.get('app.port', 3100);
