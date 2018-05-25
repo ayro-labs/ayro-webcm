@@ -2,4 +2,4 @@ app:
   debug: true
 session:
   keyId: ayro
-  secret: abcde
+  secret: ayro
