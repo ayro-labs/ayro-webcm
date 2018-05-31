@@ -1,7 +1,7 @@
 'use strict';
 
 const {logger} = require('@ayro/commons');
-const webSocket = require('../utils/webSocket');
+const webSocket = require('utils/webSocket');
 
 module.exports = (router, app) => {
   app.post('/push/:device', (req, res) => {

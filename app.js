@@ -1,12 +1,12 @@
 'use strict';
 
+require('app-module-path/register');
 require('newrelic');
 
 const {logger} = require('@ayro/commons');
-
-const settings = require('./configs/settings');
-const routes = require('./configs/routes');
-const webSocket = require('./utils/webSocket');
+const settings = require('configs/settings');
+const routes = require('configs/routes');
+const webSocket = require('utils/webSocket');
 const path = require('path');
 const http = require('http');
 const express = require('express');

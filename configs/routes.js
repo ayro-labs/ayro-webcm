@@ -1,7 +1,7 @@
 'use strict';
 
 const {logger} = require('@ayro/commons');
-const indexRoutes = require('../routes');
+const indexRoutes = require('routes');
 
 exports.configure = (express, app, webSocket) => {
   logger.info('Configuring routes');

@@ -1,6 +1,6 @@
 'use strict';
 
-const settings = require('../configs/settings');
+const settings = require('configs/settings');
 const redis = require('redis');
 const JwtRedis = require('jsonwebtoken-redis');
 const Promise = require('bluebird');

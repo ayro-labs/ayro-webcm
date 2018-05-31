@@ -1,6 +1,6 @@
 'use strict';
 
-const session = require('./session');
+const session = require('utils/session');
 const {logger} = require('@ayro/commons');
 const faye = require('faye');
 const util = require('util');
