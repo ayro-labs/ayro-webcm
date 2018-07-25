@@ -1,4 +1,4 @@
-FROM node:carbon-alpine
+FROM keymetrics/pm2:8-alpine
 WORKDIR /usr/src/ayro-webcm
 COPY ./package*.json ./
 COPY ./.npmrc .npmrc
@@ -9,11 +9,9 @@ RUN \
   apk --no-cache update && \
   apk add --update --no-cache --virtual .build-deps make gcc g++ python && \
   npm install --production && \
-  npm install pm2 -g && \
   apk del .build-deps && \
   rm -rf /var/cache/apk/* /tmp/* && \
   touch config.yml
 COPY . .
 EXPOSE 3100
 EXPOSE 3102
-CMD ["pm2-docker", "process.json", "--only", "Ayro Webcm"]
